@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мұғалім парағы</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/teacher.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Мұғалім парағы</h1>
+            {% if session.get("email") %}
+                <p>Қош келдіңіз, {{ session.get("email") }}!</p>
+            {% else %}
+                <p>Қош келдіңіз! Мұнда сіз тіркеліп, жүйеге кіре аласыз.</p>
+            {% endif %}
+        </header>
+        <main>
+            <div class="buttons">
+                {% if session.get("email") %}
+                    <!-- Тек кірген қолданушыларға -->
+                    <form action="/logout" method="POST" style="display: inline;">
+                        <button type="submit" class="btn">Шығу</button>
+                    </form>
+                {% else %}
+                    <!-- Тіркелу және кіру батырмалары -->
+                    <a href="/register_teacher" class="btn">Тіркелу</a>
+                    <a href="/login_teacher" class="btn">Кіру</a>
+                {% endif %}
+            </div>
+        </main>
+    </div>
+</body>
+</html>

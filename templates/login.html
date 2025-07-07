@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кіру</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <form action="/login" method="POST">
+        <label for="name">Есім:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="class">Сынып:</label>
+        <select id="class" name="class" required>
+            <option value="5А">5А</option>
+            <option value="5Б">5Б</option>
+            <option value="5В">5В</option>
+            <!-- Қажетті сыныптарды қосыңыз -->
+        </select>
+        <br>
+        <label for="password">Құпиясөз:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit">Кіру</button>
+    </form>
+</body>
+</html>
