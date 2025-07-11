@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <title>Жеке парақша</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Сәлем, {{ student.name }}!</h1>
+    <p>Сынып: {{ student.student_class }}</p>
+    <p>Жалпы балл: <strong>{{ student.score }}</strong></p>
+    <p>Өткен тапсырмалар: <strong>{{ progress_count }}</strong></p>
+
+    <h2>🕹 Ойын нәтижелері</h2>
+    {% if games %}
+      <ul>
+        {% for game in games %}
+          <li>
+            {{ game.game_name }} — {{ game.score }} балл ({{ "✓" if game.completed else "○" }})
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>Әзірге ойын нәтижелері жоқ.</p>
+    {% endif %}
+
+    <form action="/logout" method="POST" class="logout-form">
+      <button type="submit">Шығу</button>
+    </form>
+  </div>
+</body>
+</html>
