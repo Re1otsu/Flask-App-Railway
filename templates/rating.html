@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>Рейтинг</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/rating.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Оқушылар рейтингі</h1>
+        <table class="rating-table">
+            <thead>
+                <tr>
+                    <th>🏅 Орын</th>
+                    <th>👤 Аты</th>
+                    <th>🏫 Сыныбы</th>
+                    <th>⭐ Ұпай</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr class="{% if loop.index == 1 %}gold{% elif loop.index == 2 %}silver{% elif loop.index == 3 %}bronze{% endif %}">
+                    <td>{{ loop.index }}</td>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.student_class }}</td>
+                    <td>{{ student.score }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/student" class="btn_back">Артқа</a>
+    </div>
+</body>
+</html>
