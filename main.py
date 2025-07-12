@@ -8,12 +8,20 @@ from flask_migrate import Migrate
 from functools import wraps
 
 
+
 app = Flask(__name__)
 
 load_dotenv()  # .env файлын жүктеу
 app.secret_key = os.getenv("SECRET_KEY")  # Құпия кілтті пайдалану
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///school.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
+app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
+    "connect_args": {
+        "sslmode": "require"
+    }
+}
+
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -520,6 +528,7 @@ def teacher_progress():
         })
 
     return render_template("teacher_progress.html", progress_data=progress_data)
+
 
 
 if __name__ == "__main__":
