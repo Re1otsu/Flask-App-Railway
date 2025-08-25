@@ -1,0 +1,4 @@
+body { font-family: sans-serif; text-align: center; }
+#canvas { border: 1px solid black; margin: 10px; }
+.toolbar { margin-bottom: 10px; }
+label { margin: 0 10px; }
