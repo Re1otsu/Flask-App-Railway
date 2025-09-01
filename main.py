@@ -127,16 +127,6 @@ def login_required(role):
     return decorator
 
 
-app.route("/delete_announcement/<int:id>", methods=["POST"])
-@login_required("teacher")
-def delete_announcement(id):
-    announcement = Announcement.query.get(id)
-    if announcement:
-        db.session.delete(announcement)
-        db.session.commit()
-        flash("Хабарлама өшірілді.")
-    return redirect("/teacher")
-
 @app.route("/edit_announcement/<int:id>", methods=["GET", "POST"])
 @login_required("teacher")
 def edit_announcement(id):
