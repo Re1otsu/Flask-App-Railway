@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тіркелу</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reg_tchr.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Тіркелу</h1>
+            <p>Мұғалімнің тіркелу формасын толтырыңыз:</p>
+        </header>
+        <main>
+            <form action="/register_teacher" method="post" class="form">
+                <label for="name">Аты жөніңізді жаз:</label>
+                <input type="text" id="name" name="name" placeholder="Мысалы: Мақсатқызы Айжан" required>
+
+                <label for="email">Почтаңызды жазыңыз:</label>
+                <input type="text" id="email" name="email" placeholder="Мысалы: aizhan00@mail.ru" required>
+
+                <label for="password">Құпиясөз ойлап тап:</label>
+                <input type="password" id="password" name="password" placeholder="Құпиясөз" required>
+
+                <button type="submit" class="btn">Тіркелу</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <title>Фигура құрастыр!</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/module7.css') }}">
+</head>
+<body>
+  <h2>🎮 Фигура құрастыр!</h2>
+  <div class="toolbar">
+    <label>Фигура:
+      <select id="shape">
+        <option value="rect">Төртбұрыш</option>
+        <option value="circle">Шеңбер</option>
+        <option value="triangle">Үшбұрыш</option>
+      </select>
+    </label>
+    <label>Түс:
+      <input type="color" id="color" value="#ff0000">
+    </label>
+    <label>X: <input type="number" id="x" value="50"></label>
+    <label>Y: <input type="number" id="y" value="50"></label>
+    <label>Ені: <input type="number" id="width" value="100"></label>
+    <label>Биіктігі: <input type="number" id="height" value="100"></label>
+    <button onclick="addShape()">Қосу</button>
+    <button onclick="checkMatch()">Тексеру</button>
+  </div>
+
+  <canvas id="canvas" width="500" height="400"></canvas>
+  <div id="result"></div>
+  <script src="static/js/module7.js"></script>
+</body>
+</html>

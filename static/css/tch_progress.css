@@ -1,0 +1,125 @@
+
+        /* Фон страницы */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #9fd3ff, #a08bff);
+            color: #2c3e50;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Контейнер таблицы */
+        .container {
+            justify-content: space-between;
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px;
+            width: 90%;
+            max-width: 1200px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+
+        }
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-size: 32px;
+    color: #2c3e50;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+th {
+    background-color: #2a5d9f;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+td {
+    font-weight: bold;
+    font-size: 15px;
+    color: #2c3e50;
+    line-height: 1.5;
+}
+        /* Стиль строк с играми */
+.game-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+.game-row span {
+    font-weight: 500;
+    color: #555;
+}
+        .game-row form {
+            display: inline;
+        }
+
+.game-row button {
+    background-color: #a08bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.game-row button:hover {
+    background-color: #8a6efc;
+    transform: translateY(-2px);
+}
+
+tbody tr:hover {
+    background-color: #95d4f8;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.top .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2a5d9f;
+    text-decoration: none;
+    width: 6.5em;
+    height: 2em;
+    border-radius: 0.5em;
+    margin-top: 2em;
+    color: #fff;
+    font-weight: 400;
+    
+}
+
+.top .btn:hover {
+    background-color: #07408a;
+    transform: translateY(-2px);
+    transition: background 0.2s, transform 0.2s;
+}

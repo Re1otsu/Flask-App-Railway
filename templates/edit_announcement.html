@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Хабарламаны өзгерту</title>
+</head>
+<body>
+    <h2>Хабарламаны өзгерту</h2>
+    <form method="POST">
+        <label>Сынып:</label><br>
+        <input type="text" name="class_name" value="{{ announcement.class_name }}" required><br><br>
+
+        <label>Мәтін:</label><br>
+        <textarea name="message" rows="4" cols="50" required>{{ announcement.message }}</textarea><br><br>
+
+        <button type="submit">Сақтау</button>
+    </form>
+    <a href="/teacher">← Артқа қайту</a>
+</body>
+</html>

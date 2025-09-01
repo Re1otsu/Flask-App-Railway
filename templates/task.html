@@ -1,0 +1,20 @@
+<!-- templates/task.html -->
+<h3>Модуль: {{ module }}</h3>
+<p><strong>Сұрақ:</strong> {{ task.question }}</p>
+
+<form method="POST">
+    <input type="text" name="answer" placeholder="Жауапты енгізіңіз" required>
+    <button type="submit">Жіберу</button>
+</form>
+
+{% if result is defined %}
+    {% if result %}
+        <p style="color:green;">Дұрыс! ✅</p>
+    {% else %}
+        <p style="color:red;">Қате 😢 Дұрыс жауап: {{ task.correct_answer }}</p>
+        {% if task.explanation %}
+            <p><em>Түсіндірме: {{ task.explanation }}</em></p>
+        {% endif %}
+    {% endif %}
+    <a href="{{ url_for('tasks', module=module, index=next_index) }}">Келесі сұрақ →</a>
+{% endif %}

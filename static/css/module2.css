@@ -1,0 +1,98 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #e0e4e8; /* чуть темнее, чем был #f9f9f9 */
+  padding: 20px;
+  text-align: center;
+  user-select: none;
+}
+
+
+h1 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.info {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #555;
+  min-height: 24px;
+}
+
+.score {
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 20px;
+  color: #222;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(8, 50px);
+  grid-template-rows: repeat(8, 50px);
+  gap: 5px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f7fa; /* светлее, почти белый */
+  border-radius: 6px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* более заметная тень */
+}
+
+
+.cell.blocked {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+.cell.start {
+  background-color: #d1f7d1;
+  font-weight: bold;
+}
+
+.cell.finish {
+  background-color: #f7d1d1;
+  font-weight: bold;
+}
+
+.cell.player {
+  background-color: #8bd3f7;
+  font-weight: bold;
+  box-shadow: 0 0 10px #0a74da;
+}
+
+.cell:hover:not(.blocked):not(.player) {
+  background-color: #c4e0ff;
+}
+.timer-badge {
+  display: block;
+  margin: 0.5em auto;
+  background: linear-gradient(180deg,#fff,#f3f3f3);
+  color: #2c3e50;
+  padding: 6px 10px;
+  border-radius: 999px;
+  width:9em;
+  font-weight: 700;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+}
+
+.timer-badge.low {
+  background: linear-gradient(135deg,#ff5a5a,#ff3b3b);
+  color: white;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: .5; transform: scale(1.03); }
+  100% { opacity: 1; transform: scale(1); }
+}

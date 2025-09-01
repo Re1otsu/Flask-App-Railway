@@ -1,0 +1,15 @@
+<form method="POST" action="/teacher/announcement">
+    <label for="class_name">Сыныпты таңдаңыз:</label>
+    <select name="class_name" required>
+        <option value="">-- Таңдаңыз --</option>
+        <option value="5А">5А</option>
+        <option value="5Б">5Б</option>
+        <option value="5В">5В</option>
+    </select>
+
+    <br><br>
+    <label for="message">Хабарландыру:</label><br>
+    <textarea name="message" rows="4" cols="50" required></textarea><br><br>
+
+    <button type="submit">Жариялау</button>
+</form>

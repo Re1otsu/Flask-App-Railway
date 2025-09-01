@@ -1,0 +1,25 @@
+<!-- templates/teacher_panel.html -->
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>Мұғалім панелі</title>
+</head>
+<body>
+    <h1>Оқушылар тізімі</h1>
+    <ul>
+        {% for s in students %}
+            <li>
+                {{ s.name }} - {{ s.student_class }} - {{ s.score }} ұпай
+                <form method="POST" action="/unlock_game" style="display:inline;">
+                    <input type="hidden" name="student_id" value="{{ s.id }}">
+                    <input type="hidden" name="game_name" value="words_match">
+                    <button type="submit">Қайта өтуге рұқсат беру</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="/teacher">← Артқа</a>
+</body>
+</html>

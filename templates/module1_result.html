@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+<head>
+    <title>Нәтиже</title>
+    <style>
+        .modal {
+            display: block;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background: #fff;
+            margin: 15% auto;
+            padding: 30px;
+            width: 400px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .modal-content h2 {
+            margin-top: 0;
+            color: #2a5bb3;
+        }
+        .btn {
+            padding: 10px 20px;
+            background: #2a71d0;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="modal">
+        <div class="modal-content">
+            <h2>Бұл модуль бұрын өтілген</h2>
+            <p>Сіздің соңғы ұпайыңыз: <strong>{{ score }}</strong></p>
+            <p>Өту саны: <strong>{{ attempt }}</strong></p>
+            <p>Қайта өту үшін мұғалім рұқсат беруі тиіс.</p>
+            <form action="/1module">
+                <button class="btn" onclick="closeModule()">Артқа</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function closeModule() {
+            if (window !== window.parent) {
+                const modal = window.parent.document.getElementById('module-modal');
+                const iframe = window.parent.document.getElementById('module-frame');
+                modal.style.display = 'none';
+                iframe.src = '';
+            } else {
+                window.location.href = "/student";
+            }
+        }
+
+        // Артқа батырмасын басқанда да қайта бағыттаймыз
+        window.onpopstate = function () {
+            closeModule();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кіру</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <form action="/login_teacher" method="POST">
+        <label for="email">Почта:</label>
+        <input type="text" id="email" name="email" required>
+        <br>
+        <label for="password">Құпиясөз:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit">Кіру</button>
+    </form>
+</body>
+</html>

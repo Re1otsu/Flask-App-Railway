@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <title>Өзеннен өту ойыны</title>
+  <link rel="stylesheet" href="/static/css/game2.css">
+  <link rel="stylesheet" href="/static/css/normalize.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="background-image: url('{{ url_for('static', filename='img/bg2.jpg') }}');">
+
+  <!-- Жоғарыдағы "Мәтін, Дыбыс, Бейне" -->
+  <div class="targets">
+    <div class="target" data-match="мәтін">Мәтін</div>
+    <div class="target" data-match="дыбыс">Дыбыс</div>
+    <div class="target" data-match="бейне">Бейне</div>
+  </div>
+
+  <!-- Көпір тақталары -->
+  <div class="bridge">
+    <div class="plank" id="p1"><img src="static/img/wood.png"></div>
+    <div class="plank" id="p2"><img src="static/img/wood.png"></div>
+    <div class="plank" id="p3"><img src="static/img/wood.png"></div>
+  </div>
+
+  <!-- Төмендегі карточкалар -->
+  <div class="items">
+    <div class="item" draggable="true" data-answer="мәтін">
+      <img src="static/img/newspaper.png" alt=""><span>Газет</span>
+    </div>
+    <div class="item" draggable="true" data-answer="дыбыс">
+      <img src="static/img/music.png" alt=""><span>Ән</span>
+    </div>
+    <div class="item" draggable="true" data-answer="бейне">
+      <img src="static/img/film.png" alt=""><span>Фильм</span>
+    </div>
+  </div>
+
+  <!-- Модальное окно результатов -->
+  <div id="game-over" class="hidden">
+    <img src="static/img/star.png" style="width:30vw;">
+    <h2>Ойын аяқталды!</h2>
+    <p id="final-score">Ұпай: 0</p>
+    <div id="star-container"></div>
+  </div>
+
+  <script src="static/js/game2.js"></script>
+</body>
+</html>

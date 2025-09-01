@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>БілімQuest</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/student.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+</head>
+<body>
+        <header class="top-bar">
+            <h1 class="logo">BilimQuest</h1>
+            <h2 class="text">Жалпы білім беретін орта мектептің 5-сынып пәні бойынша практикалық тапсырмаларды геймификация элементтерін қолдана отырып оқыту порталы</h2>
+            <div class="top-info">
+                <a href="/rating" class="btn-rating">
+                    ⭐ {{ student.score }}
+                </a>
+                <a href="/student_dashboard" class="btn-profile">
+                    <img src="static/img/user.png" alt="user" class="avatar">
+                    <span>{{ student.name }}</span>
+                </a>
+            </div>
+        </header>
+
+        <main>
+            <div class="main-container">
+
+                <!-- Левая часть: модули -->
+                <div class="sidebar">
+                    <a href="/1module" class="module">
+                        <span>Ақпаратты ұсыну</span>
+                    </a>
+                    <a href="" class="module {% if not completed['push_blocks_all'] %}disabled{% endif %}">
+                        <span>Компьютерлік графика</span>
+                    </a>
+                    <a href="" class="module {% if not completed['push_blocks_all'] %}disabled{% endif %}">
+                        <span>Робототехника</span>
+                    </a>
+                    <a href="" class="module {% if not completed['push_blocks_all'] %}disabled{% endif %}">
+                        <span>Роботтардың жарысы</span>
+                    </a>
+                </div>
+
+                <!-- Правая часть: контейнер для объявлений -->
+                <div class="announcements">
+                    <h2>📢 Хабарландырулар</h2>
+                    <ul>
+                        {% for ann in announcements %}
+                            <li>
+                                {{ ann.message }}
+                                <small style="color: gray;">{{ ann.local_time().strftime("%d.%m.%Y %H:%M") }}</small>
+                            </li>
+                        {% else %}
+                            <li>Әзірше хабарландыру жоқ</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+            </div>
+        </main>
+
+</body>
+</html>

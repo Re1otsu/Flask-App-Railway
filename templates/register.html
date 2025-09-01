@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тіркелу</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Тіркелу</h1>
+            {% if error %}
+                <p style="color: red; font-weight: bold;">{{ error }}</p>
+            {% endif %}
+        </header>
+        <main>
+            <form action="/register" method="post">
+                <label for="name">Атыңды жаз:</label>
+                <input type="text" id="name" name="name" placeholder="Мысалы: Айжан" required>
+
+                <label for="class">Сыныбыңды таңда:</label>
+                <select id="class" name="class" required>
+                    <option value="" disabled selected>Сыныпты таңдаңыз</option>
+                    <option value="5А">5А</option>
+                    <option value="5Б">5Б</option>
+                    <option value="5В">5В</option>
+                </select>
+
+                <label for="password">Құпиясөз ойлап тап:</label>
+                <input type="password" id="password" name="password" placeholder="Құпиясөз" required>
+
+                <button type="submit" style="margin-top: 1em; border-radius: 0.5em;">Тіркелу</button>
+
+                <!-- Обратная ссылка -->
+                <div class="login-link">
+                    <p>Тіркелгенсіз бе?</p>
+                    <a href="/login" class="login-btn">Кіру</a>
+                </div>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

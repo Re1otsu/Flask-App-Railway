@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Хабарламалар</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/announcement_history.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Хабарламалар</h1>
+    <a href="/teacher" class="btn-back">← Басты бетке</a>
+    <ul>
+        {% for a in announcements %}
+        <li>
+            <div>
+                <strong>{{ a.class_name }}</strong>: {{ a.message }}
+            </div>
+            <div class="timestamp">{{ a.local_time().strftime("%d.%m.%Y %H:%M") }}</div>
+            <div class="actions">
+                <form action="{{ url_for('delete_announcement', announcement_id=a.id) }}" method="POST" onsubmit="return confirm('Хабарламаны өшіру?')">
+                    <button type="submit">❌ Жою</button>
+                </form>
+            </div>
+        </li>
+        {% else %}
+        <li>Хабарламалар әзірше жоқ.</li>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>
